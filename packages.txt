@@ -1,1 +1,1 @@
-libgl1
+printf "libgl1\nlibglib2.0-0\n" > packages.txt
