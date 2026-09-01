@@ -1,0 +1,8 @@
+venv/
+dataset/
+archive (1).zip
+__pycache__/
+.DS_Store
+*.pyc
+training_data.csv
+expression_features.csv
