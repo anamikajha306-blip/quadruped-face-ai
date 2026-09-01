@@ -1,9 +1,9 @@
 import streamlit as st
-import cv2
 import math
 import joblib
 import mediapipe as mp
 import numpy as np
+from PIL import Image
 
 # -----------------------------
 # PAGE SETTINGS
@@ -119,19 +119,8 @@ camera_image = st.camera_input("Take a picture")
 
 if camera_image is not None:
 
-    bytes_data = camera_image.getvalue()
-
-    np_array = np.frombuffer(bytes_data, np.uint8)
-
-    image = cv2.imdecode(
-        np_array,
-        cv2.IMREAD_COLOR
-    )
-
-    image_rgb = cv2.cvtColor(
-        image,
-        cv2.COLOR_BGR2RGB
-    )
+    image = Image.open(camera_image).convert("RGB")
+    image_rgb = np.array(image) 
 
     mp_image = mp.Image(
         image_format=mp.ImageFormat.SRGB,
